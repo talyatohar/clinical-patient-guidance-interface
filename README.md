@@ -10,16 +10,14 @@ This project is a demonstration prototype and is not connected to hospital infor
 
 ---
 
-## Demo Login
+## Live Demo
 
-This prototype uses a demonstration database with mock patient records.
+https://clinical-patient-guidance-interface-i3gogx2bx.vercel.app
 
-To explore the application:
+Demo Login:
+- ID Number: 123456789
+- Authentication Code: 1234
 
-* ID Number: 123456789
-* Authentication Code: 1234
-
-No real patient information is included in the project.
 ----
 
 ## Current Features
