@@ -58,8 +58,6 @@ export async function loadDatabase(options?: {
     return { ...cachedDatabase, loaded: true };
   }
 
-  const warnings: ParseWarning[] = [];
-
   let buffer = options?.buffer ?? null;
 
   if (!buffer) {

@@ -18,7 +18,6 @@ import {
   parseIdNumber,
   parseInteger,
   parseNullableString,
-  parseNumber,
   parseString,
   pickFieldValue,
 } from '@/shared/services/excel/parseUtils';
