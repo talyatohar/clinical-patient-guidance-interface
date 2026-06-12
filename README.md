@@ -12,7 +12,7 @@ This project is a demonstration prototype and is not connected to hospital infor
 
 ## Live Demo
 
-https://clinical-patient-guidance-interface-i3gogx2bx.vercel.app
+https://clinical-patient-guidance-interface.vercel.app
 
 Demo Login:
 - ID Number: 123456789
