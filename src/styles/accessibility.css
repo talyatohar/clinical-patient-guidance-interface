@@ -1,0 +1,21 @@
+@import './high-contrast.css';
+
+html {
+  font-size: 100%;
+}
+
+html[data-text-size='large'] {
+  font-size: 112.5%;
+}
+
+html[data-text-size='extra-large'] {
+  font-size: 125%;
+}
+
+.patient-app {
+  overflow-x: clip;
+}
+
+.patient-main {
+  overflow-wrap: anywhere;
+}

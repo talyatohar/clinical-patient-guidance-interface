@@ -1,0 +1,49 @@
+/* Desktop-friendly staff dashboard shell */
+
+.staff-app {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.staff-sidebar {
+  display: none;
+  flex-shrink: 0;
+  width: var(--staff-sidebar-width);
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+}
+
+.staff-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.staff-header {
+  flex-shrink: 0;
+  height: var(--staff-header-height);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.staff-main {
+  flex: 1;
+  padding: var(--space-4);
+  overflow: auto;
+}
+
+@media (min-width: 1024px) {
+  .staff-app {
+    flex-direction: row;
+  }
+
+  .staff-sidebar {
+    display: block;
+  }
+
+  .staff-main {
+    padding: var(--space-6);
+  }
+}

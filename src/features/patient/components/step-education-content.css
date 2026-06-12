@@ -1,0 +1,75 @@
+.step-education-content__intro {
+  margin: 0 0 var(--space-4);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+.step-education-content__fallback {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  font-style: italic;
+  text-align: center;
+  padding: var(--space-4) 0;
+}
+
+.step-education-content__sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.step-education-content__section {
+  padding: var(--space-4);
+  background: var(--color-bg);
+  border-radius: 0.625rem;
+  border-inline-start: 3px solid var(--color-primary);
+}
+
+.step-education-content__section--reassurance {
+  border-inline-start-color: #5eead4;
+  background: rgba(240, 253, 250, 0.85);
+}
+
+.step-education-content__section--commonQuestion {
+  border-inline-start-color: #99f6e4;
+}
+
+.step-education-content__section-title {
+  margin: 0 0 var(--space-2);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.step-education-content__body {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.step-education-content__faq {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.step-education-content__faq-question {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.step-education-content__faq-answer {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}

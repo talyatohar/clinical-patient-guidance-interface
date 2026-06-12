@@ -1,0 +1,171 @@
+.isolation-nav-cue {
+  padding: var(--space-4);
+  border-radius: 0.625rem;
+  background: rgba(239, 246, 255, 0.85);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  text-align: start;
+}
+
+.isolation-nav-cue__intro {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--color-text);
+}
+
+.isolation-nav-cue__routes {
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.isolation-nav-cue__route {
+  padding: var(--space-3);
+  border-radius: 0.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.isolation-nav-cue__route--room18 {
+  border-color: rgba(37, 99, 235, 0.25);
+}
+
+.isolation-nav-cue__route--room12 {
+  border-color: rgba(220, 38, 38, 0.25);
+}
+
+.isolation-nav-cue__route-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.isolation-nav-cue__room-label {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-text);
+  flex-shrink: 0;
+}
+
+.isolation-nav-cue__route--room18 .isolation-nav-cue__room-label {
+  color: #1d4ed8;
+}
+
+.isolation-nav-cue__route--room12 .isolation-nav-cue__room-label {
+  color: #b91c1c;
+}
+
+/* Blue footprints — appear sequentially along walking direction */
+.isolation-nav-cue__footprints {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 2.25rem;
+  padding: var(--space-1) var(--space-2);
+  margin-inline-start: auto;
+}
+
+.isolation-nav-cue__footprint {
+  display: block;
+  width: 0.75rem;
+  height: 1.125rem;
+  border-radius: 55% 55% 45% 45%;
+  background: #2563eb;
+  opacity: 0;
+  transform: scale(0.65) rotate(-8deg);
+  animation: isolation-footprint-step 2.4s ease-in-out infinite;
+}
+
+@keyframes isolation-footprint-step {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.65) rotate(-8deg);
+  }
+  12%,
+  38% {
+    opacity: 1;
+    transform: scale(1) rotate(-8deg);
+  }
+}
+
+.isolation-nav-cue__footprint:nth-child(even) {
+  transform: scale(0.65) rotate(8deg) translateY(0.15rem);
+  animation-name: isolation-footprint-step-alt;
+}
+
+@keyframes isolation-footprint-step-alt {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.65) rotate(8deg) translateY(0.15rem);
+  }
+  12%,
+  38% {
+    opacity: 1;
+    transform: scale(1) rotate(8deg) translateY(0.15rem);
+  }
+}
+
+/* Red line — gentle draw along the path */
+.isolation-nav-cue__line-track {
+  position: relative;
+  width: min(10rem, 45vw);
+  height: 0.35rem;
+  border-radius: 999px;
+  background: rgba(254, 226, 226, 0.9);
+  overflow: hidden;
+  margin-inline-start: auto;
+  flex-shrink: 0;
+}
+
+.isolation-nav-cue__line-fill {
+  display: block;
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #fca5a5 0%, #dc2626 55%, #b91c1c 100%);
+  transform-origin: inline-start center;
+  transform: scaleX(0);
+  animation: isolation-red-line-draw 3s ease-in-out infinite;
+}
+
+@keyframes isolation-red-line-draw {
+  0% {
+    transform: scaleX(0);
+    opacity: 0.65;
+  }
+  45%,
+  70% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 0.55;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .isolation-nav-cue__footprint,
+  .isolation-nav-cue__line-fill {
+    animation: none;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .isolation-nav-cue__line-fill {
+    transform: scaleX(1);
+  }
+}

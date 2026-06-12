@@ -1,0 +1,263 @@
+/* High contrast theme — healthcare-friendly, not harsh black/white */
+
+html[data-contrast-mode='high'] {
+  --color-bg: #e8edf2;
+  --color-surface: #ffffff;
+  --color-text: #0a1018;
+  --color-text-muted: #2a3545;
+  --color-primary: #055a54;
+  --color-primary-hover: #044a45;
+  --color-border: #3b4758;
+  --color-on-primary: #ffffff;
+  --color-accent-surface: #d9f7f2;
+  --color-accent-border: #055a54;
+  --color-help-surface: #ffedd5;
+  --color-help-text: #7c2d12;
+  --color-help-border: #9a3412;
+  --color-error-text: #7f1d1d;
+  --color-error-surface: #fde8e8;
+  --color-info-surface: #dbeafe;
+  --color-info-border: #1d4ed8;
+  --color-info-text: #1e3a8a;
+  --color-waiting-surface: #ede9fe;
+  --color-waiting-border: #4338ca;
+  --color-waiting-heading: #3730a3;
+  --color-overlay: rgba(10, 16, 24, 0.62);
+  --shadow-elevated: 0 8px 24px rgba(10, 16, 24, 0.2);
+  --focus-outline-width: 3px;
+  --card-border-width: 2px;
+}
+
+html[data-contrast-mode='high'] body {
+  background-color: var(--color-bg);
+}
+
+html[data-contrast-mode='high'] .patient-app :focus-visible {
+  outline-width: var(--focus-outline-width);
+  outline-offset: 2px;
+}
+
+/* Cards, inputs, and shells */
+
+html[data-contrast-mode='high'] .login-input,
+html[data-contrast-mode='high'] .login-select,
+html[data-contrast-mode='high'] .welcome-card,
+html[data-contrast-mode='high'] .preparation-card,
+html[data-contrast-mode='high'] .current-step-primary-card,
+html[data-contrast-mode='high'] .current-step-card,
+html[data-contrast-mode='high'] .completion-card,
+html[data-contrast-mode='high'] .upcoming-steps,
+html[data-contrast-mode='high'] .patient-app-header__button,
+html[data-contrast-mode='high'] .accessibility-panel,
+html[data-contrast-mode='high'] .accessibility-panel__option,
+html[data-contrast-mode='high'] .step-education-sheet__panel,
+html[data-contrast-mode='high'] .help-request-modal__panel,
+html[data-contrast-mode='high'] .preparation-item,
+html[data-contrast-mode='high'] .upcoming-steps__item,
+html[data-contrast-mode='high'] .next-steps-list li,
+html[data-contrast-mode='high'] .completion-feedback__comment {
+  border-width: var(--card-border-width);
+  border-color: var(--color-border);
+}
+
+html[data-contrast-mode='high'] .login-error {
+  color: var(--color-error-text);
+  background: var(--color-error-surface);
+  border: var(--card-border-width) solid var(--color-error-text);
+}
+
+html[data-contrast-mode='high'] .login-status--error {
+  color: var(--color-error-text);
+}
+
+html[data-contrast-mode='high'] .login-button,
+html[data-contrast-mode='high'] .welcome-journey-button,
+html[data-contrast-mode='high'] .preparation-continue-button,
+html[data-contrast-mode='high'] .current-step-button--primary,
+html[data-contrast-mode='high'] .next-steps-back-button,
+html[data-contrast-mode='high'] .help-request-modal__submit,
+html[data-contrast-mode='high'] .step-tracker__item--completed .step-tracker__marker,
+html[data-contrast-mode='high'] .step-tracker__item--current .step-tracker__marker {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  border: var(--card-border-width) solid var(--color-primary-hover);
+}
+
+html[data-contrast-mode='high'] .login-button:hover:not(:disabled),
+html[data-contrast-mode='high'] .welcome-journey-button:hover,
+html[data-contrast-mode='high'] .preparation-continue-button:hover,
+html[data-contrast-mode='high'] .current-step-button--primary:hover,
+html[data-contrast-mode='high'] .next-steps-back-button:hover,
+html[data-contrast-mode='high'] .help-request-modal__submit:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+html[data-contrast-mode='high'] .preparation-warning {
+  background: var(--color-help-surface);
+  border: var(--card-border-width) solid var(--color-help-border);
+  color: var(--color-help-text);
+}
+
+html[data-contrast-mode='high'] .preparation-item:has(input:checked) {
+  border-color: var(--color-accent-border);
+  background: var(--color-accent-surface);
+}
+
+html[data-contrast-mode='high'] .current-step-primary-card__remaining {
+  background: var(--color-accent-surface);
+  border: var(--card-border-width) solid var(--color-accent-border);
+}
+
+html[data-contrast-mode='high'] .current-step-info-button {
+  background: var(--color-accent-surface);
+  border: var(--card-border-width) solid var(--color-accent-border);
+  color: var(--color-primary);
+}
+
+html[data-contrast-mode='high'] .current-step-info-button:hover {
+  background: #c6f0e8;
+  border-color: var(--color-primary-hover);
+}
+
+html[data-contrast-mode='high'] .current-step-help-button {
+  background: var(--color-help-surface);
+  border: var(--card-border-width) solid var(--color-help-border);
+  color: var(--color-help-text);
+}
+
+html[data-contrast-mode='high'] .current-step-help-button:hover {
+  background: #fed7aa;
+  border-color: var(--color-help-border);
+}
+
+html[data-contrast-mode='high'] .current-step-help-button:focus-visible {
+  outline-color: var(--color-help-border);
+}
+
+html[data-contrast-mode='high'] .completion-hero {
+  background: var(--color-accent-surface);
+  border: var(--card-border-width) solid var(--color-accent-border);
+}
+
+html[data-contrast-mode='high'] .isolation-nav-cue {
+  background: var(--color-info-surface);
+  border: var(--card-border-width) solid var(--color-info-border);
+}
+
+html[data-contrast-mode='high'] .isolation-nav-cue__route--room18 {
+  border-color: var(--color-info-border);
+}
+
+html[data-contrast-mode='high'] .isolation-nav-cue__route--room12 {
+  border-color: var(--color-help-border);
+}
+
+html[data-contrast-mode='high'] .isolation-nav-cue__route--room18 .isolation-nav-cue__room-label {
+  color: var(--color-info-text);
+}
+
+html[data-contrast-mode='high'] .isolation-nav-cue__route--room12 .isolation-nav-cue__room-label {
+  color: var(--color-help-text);
+}
+
+html[data-contrast-mode='high'] .waiting-content-card {
+  background: var(--color-waiting-surface);
+  border: var(--card-border-width) solid var(--color-waiting-border);
+}
+
+html[data-contrast-mode='high'] .waiting-content-card__heading {
+  color: var(--color-waiting-heading);
+}
+
+html[data-contrast-mode='high'] .waiting-content-card__section + .waiting-content-card__section {
+  border-top-color: var(--color-waiting-border);
+}
+
+html[data-contrast-mode='high'] .step-education-content__section {
+  border-inline-start-width: 4px;
+  border-inline-start-color: var(--color-primary);
+  background: var(--color-accent-surface);
+}
+
+html[data-contrast-mode='high'] .step-education-content__section--reassurance {
+  border-inline-start-color: var(--color-primary-hover);
+}
+
+html[data-contrast-mode='high'] .step-education-sheet__backdrop,
+html[data-contrast-mode='high'] .help-request-modal__backdrop {
+  background: var(--color-overlay);
+}
+
+html[data-contrast-mode='high'] .step-education-sheet__panel,
+html[data-contrast-mode='high'] .help-request-modal__panel,
+html[data-contrast-mode='high'] .accessibility-panel {
+  box-shadow: var(--shadow-elevated);
+}
+
+html[data-contrast-mode='high'] .help-request-modal__option:has(input:checked) {
+  border-color: var(--color-accent-border);
+  background: var(--color-accent-surface);
+}
+
+html[data-contrast-mode='high'] .help-request-modal__confirmation {
+  background: var(--color-accent-surface);
+  border: var(--card-border-width) solid var(--color-accent-border);
+}
+
+html[data-contrast-mode='high'] .help-request-modal__confirmation-text {
+  color: var(--color-primary);
+}
+
+html[data-contrast-mode='high'] .completion-star-rating__star {
+  border: var(--card-border-width) solid var(--color-border);
+  color: #92400e;
+  background: var(--color-help-surface);
+}
+
+html[data-contrast-mode='high'] .completion-star-rating__star--selected {
+  border-color: var(--color-accent-border);
+  background: var(--color-accent-surface);
+  color: #92400e;
+}
+
+/* Timeline */
+
+html[data-contrast-mode='high'] .step-tracker__item--current .step-tracker__marker {
+  box-shadow: 0 0 0 3px var(--color-accent-border);
+}
+
+html[data-contrast-mode='high'] .step-tracker__item--upcoming .step-tracker__marker {
+  background: var(--color-surface);
+  border: var(--card-border-width) solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+html[data-contrast-mode='high'] .step-tracker__connector {
+  width: 3px;
+}
+
+html[data-contrast-mode='high'] .step-tracker__item--upcoming .step-tracker__dot {
+  opacity: 1;
+}
+
+html[data-contrast-mode='high'] .upcoming-steps__order {
+  border: var(--card-border-width) solid var(--color-border);
+  color: var(--color-text);
+}
+
+/* Accessibility panel */
+
+html[data-contrast-mode='high'] .patient-app-header__button[aria-expanded='true'] {
+  background: var(--color-accent-surface);
+  border-color: var(--color-accent-border);
+}
+
+html[data-contrast-mode='high'] .accessibility-panel__option {
+  background: var(--color-bg);
+}
+
+html[data-contrast-mode='high'] .accessibility-panel__option:has(.accessibility-panel__radio:checked) {
+  border-color: var(--color-accent-border);
+  background: var(--color-accent-surface);
+}

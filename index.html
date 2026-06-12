@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nuclear Medicine Guide</title>
+  </head>
+  <body>
+    <script>
+      try {
+        var textSize = localStorage.getItem('nuclear-medicine-guide.text-size');
+        if (textSize === 'large' || textSize === 'extra-large') {
+          document.documentElement.dataset.textSize = textSize;
+        }
+        var contrastMode = localStorage.getItem('nuclear-medicine-guide.contrast-mode');
+        if (contrastMode === 'high') {
+          document.documentElement.dataset.contrastMode = contrastMode;
+        }
+      } catch (error) {}
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

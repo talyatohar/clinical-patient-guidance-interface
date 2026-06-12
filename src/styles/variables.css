@@ -1,0 +1,33 @@
+:root {
+  /* Typography */
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Spacing (mobile-first scale) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+
+  /* Colors */
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-text: #0f172a;
+  --color-text-muted: #64748b;
+  --color-primary: #0d9488;
+  --color-primary-hover: #0f766e;
+  --color-border: #e2e8f0;
+
+  /* Layout */
+  --patient-max-width: 28rem;
+  --staff-sidebar-width: 16rem;
+  --staff-header-height: 3.5rem;
+
+  /* Breakpoints (for reference in JS or container queries) */
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+}

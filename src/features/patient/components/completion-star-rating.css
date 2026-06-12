@@ -1,0 +1,48 @@
+.completion-star-rating {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.completion-star-rating__star {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    background 0.15s ease,
+    transform 0.1s ease;
+}
+
+.completion-star-rating__star:hover {
+  border-color: rgba(13, 148, 136, 0.45);
+  color: #d97706;
+  background: rgba(255, 247, 237, 0.8);
+}
+
+.completion-star-rating__star--selected {
+  border-color: rgba(13, 148, 136, 0.5);
+  background: rgba(240, 253, 250, 0.95);
+  color: #d97706;
+}
+
+.completion-star-rating__star:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.completion-star-rating__star:active {
+  transform: scale(0.96);
+}
