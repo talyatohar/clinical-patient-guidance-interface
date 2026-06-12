@@ -70,15 +70,28 @@ No real patient information is included.
 
 ## Project Structure
 
+```text
 src/
 ├── app/
 ├── features/
-│   ├── patient/      # Implemented patient-facing application
-│   └── staff/        # Reserved for future development
+│   ├── patient/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   └── state/
+│   │
+│   └── staff/
+│       └── Reserved for future development
+│
 ├── shared/
+│   ├── components/
+│   ├── models/
+│   ├── services/
+│   └── utilities/
+│
 └── styles/
-
----
+```
+-----
 
 ## Future Extensions
 
