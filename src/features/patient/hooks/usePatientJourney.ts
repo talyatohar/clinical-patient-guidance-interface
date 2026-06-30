@@ -40,7 +40,7 @@ export function usePatientJourney() {
       upcomingSteps: getUpcomingSteps(protocolSteps, currentStepIndex),
       stepEducation: currentStep
         ? getEducationForStep(currentStep.protocolId, currentStep.stepOrder)
-        : undefined,
+        : [],
       isComplete: isJourneyComplete(currentStepIndex, totalSteps),
       hasSteps: totalSteps > 0,
     };

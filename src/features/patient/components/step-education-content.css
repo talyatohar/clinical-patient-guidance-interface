@@ -15,6 +15,23 @@
   padding: var(--space-4) 0;
 }
 
+.step-education-content__blocks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.step-education-content__blocks--multiple {
+  gap: var(--space-6);
+}
+
+.step-education-content__blocks--multiple .step-education-content__block {
+  padding: var(--space-4);
+  background: var(--color-surface, var(--color-bg));
+  border-radius: 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
 .step-education-content__sections {
   display: flex;
   flex-direction: column;

@@ -22,14 +22,18 @@ export type EducationFaqSection = {
 
 export type EducationSection = EducationTextSection | EducationFaqSection;
 
+export type EducationBlock = {
+  sections: EducationSection[];
+};
+
 export function getEducationForStep(
   protocolId: string,
   stepOrder: number,
-): StepEducation | undefined {
+): StepEducation[] {
   try {
     return getStepEducationForStep(protocolId, stepOrder);
   } catch {
-    return undefined;
+    return [];
   }
 }
 
@@ -107,11 +111,47 @@ export function buildEducationSections(
   return sections;
 }
 
-export function hasAnyEducationContent(
-  education: StepEducation | undefined,
-): boolean {
-  if (!education) return false;
+function sectionContentKey(section: EducationSection): string {
+  if (section.id === 'commonQuestion') {
+    const faq = section as EducationFaqSection;
+    return `commonQuestion:q:${faq.question ?? ''}:a:${faq.answer ?? ''}`;
+  }
+  return `${section.id}:${section.body}`;
+}
 
+/** Build one card per education row; skip sections whose text was already shown. */
+export function buildEducationBlocks(
+  educationRows: StepEducation[],
+  language: Language,
+): EducationBlock[] {
+  const seenContent = new Set<string>();
+  const blocks: EducationBlock[] = [];
+
+  for (const education of educationRows) {
+    const sections = buildEducationSections(education, language).filter(
+      (section) => {
+        const key = sectionContentKey(section);
+        if (seenContent.has(key)) return false;
+        seenContent.add(key);
+        return true;
+      },
+    );
+
+    if (sections.length > 0) {
+      blocks.push({ sections });
+    }
+  }
+
+  return blocks;
+}
+
+export function hasAnyEducationContent(
+  educationRows: StepEducation[],
+): boolean {
+  return educationRows.some((education) => rowHasEducationContent(education));
+}
+
+function rowHasEducationContent(education: StepEducation): boolean {
   return (
     bilingualFieldHasContent(
       education.whatHappensNowEn,

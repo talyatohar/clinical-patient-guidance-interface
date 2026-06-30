@@ -126,11 +126,11 @@ export function getPreparationChecklistByProtocolId(
 export function getStepEducationForStep(
   protocolId: string,
   stepOrder: number,
-): StepEducation | undefined {
+): StepEducation[] {
   const normalizedProtocol = protocolId.trim();
   const normalizedOrder = Math.trunc(stepOrder);
 
-  return getStepEducation().find(
+  return getStepEducation().filter(
     (entry) =>
       entry.protocolId === normalizedProtocol &&
       entry.stepOrder === normalizedOrder,

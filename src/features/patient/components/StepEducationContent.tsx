@@ -2,7 +2,7 @@ import type { TranslationKey } from '@/features/patient/i18n/translations';
 import type { Language } from '@/features/patient/types/language';
 import '@/features/patient/components/step-education-content.css';
 import {
-  buildEducationSections,
+  buildEducationBlocks,
   getEducationForStep,
   type EducationSection,
 } from '@/features/patient/services/educationService';
@@ -27,57 +27,86 @@ function isFaqSection(
   return section.id === 'commonQuestion';
 }
 
+function EducationSectionArticle({
+  section,
+  t,
+}: {
+  section: EducationSection;
+  t: StepEducationContentProps['t'];
+}) {
+  return (
+    <article
+      className={`step-education-content__section step-education-content__section--${section.id}`}
+    >
+      <h3 className="step-education-content__section-title">
+        {t(SECTION_TITLE_KEYS[section.id])}
+      </h3>
+
+      {isFaqSection(section) ? (
+        <div className="step-education-content__faq">
+          {section.question && (
+            <p className="step-education-content__faq-question">
+              {section.question}
+            </p>
+          )}
+          {section.answer && (
+            <p
+              className={
+                section.question
+                  ? 'step-education-content__faq-answer'
+                  : 'step-education-content__body'
+              }
+            >
+              {section.answer}
+            </p>
+          )}
+        </div>
+      ) : (
+        <p className="step-education-content__body">{section.body}</p>
+      )}
+    </article>
+  );
+}
+
 export function StepEducationContent({
   protocolId,
   stepOrder,
   language,
   t,
 }: StepEducationContentProps) {
-  const education = getEducationForStep(protocolId, stepOrder);
-  const sections = buildEducationSections(education, language);
+  const educationRows = getEducationForStep(protocolId, stepOrder);
+  const blocks = buildEducationBlocks(educationRows, language);
 
-  if (sections.length === 0) {
+  if (blocks.length === 0) {
     return (
       <p className="step-education-content__fallback">{t('eduNoInformation')}</p>
     );
   }
 
+  const hasMultipleBlocks = blocks.length > 1;
+
   return (
     <>
       <p className="step-education-content__intro">{t('eduPanelIntro')}</p>
-      <div className="step-education-content__sections">
-        {sections.map((section) => (
-          <article
-            key={section.id}
-            className={`step-education-content__section step-education-content__section--${section.id}`}
-          >
-            <h3 className="step-education-content__section-title">
-              {t(SECTION_TITLE_KEYS[section.id])}
-            </h3>
-
-            {isFaqSection(section) ? (
-              <div className="step-education-content__faq">
-                {section.question && (
-                  <p className="step-education-content__faq-question">
-                    {section.question}
-                  </p>
-                )}
-                {section.answer && (
-                  <p
-                    className={
-                      section.question
-                        ? 'step-education-content__faq-answer'
-                        : 'step-education-content__body'
-                    }
-                  >
-                    {section.answer}
-                  </p>
-                )}
-              </div>
-            ) : (
-              <p className="step-education-content__body">{section.body}</p>
-            )}
-          </article>
+      <div
+        className={
+          hasMultipleBlocks
+            ? 'step-education-content__blocks step-education-content__blocks--multiple'
+            : 'step-education-content__blocks'
+        }
+      >
+        {blocks.map((block, blockIndex) => (
+          <div key={blockIndex} className="step-education-content__block">
+            <div className="step-education-content__sections">
+              {block.sections.map((section, sectionIndex) => (
+                <EducationSectionArticle
+                  key={`${blockIndex}-${section.id}-${sectionIndex}`}
+                  section={section}
+                  t={t}
+                />
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     </>
